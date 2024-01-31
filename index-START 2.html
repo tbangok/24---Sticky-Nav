@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sticky Nav</title>
-  <link rel="stylesheet" href="style-START 2.css">
+  <link rel="stylesheet" href="style-START 1.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -55,7 +55,20 @@
   </div>
 
 <script>
+    const nav = document.querySelector('#main');
+    let topOfNav = nav.offsetTop;
 
+    function fixNav() {
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+        document.body.classList.add('fixed-nav');
+      } else {
+        document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = 0;
+      }
+    }
+
+    window.addEventListener('scroll', fixNav);
 </script>
 
 </body>
